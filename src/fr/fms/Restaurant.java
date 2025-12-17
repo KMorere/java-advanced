@@ -99,8 +99,14 @@ public class Restaurant {
 			query += LocalDateTime.now().format(format)+"\n";
 		}
 		query += ("=====[Order N°"+(index)+"]=====\n");
+		int i = 0;
 		for (Product item : order.getOrder()) {
-			query += String.format(item.getProductf(menuItem.getBiggestChar()), item.getName(), item.getPrice())+"\n";
+			query += String.format(
+					menuItem.displayTypef(15)+" | ", menuItem.getMenuType(i));
+			query += String.format(
+					item.getProductf(menuItem.getBiggestChar()), 
+					item.getName(), item.getPrice())+"\n";
+			i++;
 		}
 	}
 	

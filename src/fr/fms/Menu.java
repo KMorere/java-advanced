@@ -45,6 +45,10 @@ public class Menu {
 		System.out.println();
 	}
 	
+	public String displayTypef(int size) {
+		return "%-"+size+"s";
+	}
+	
 	/**
 	 * Find the highest amount of characters from the menu.
 	 * @return The size of the longest product name.
