@@ -25,10 +25,19 @@ public class Product {
 		this.price = price;
 	}
 	
+	/**
+	 * Simple display of a product.
+	 * @return A String with a product's name and price.
+	 */
 	public String getProduct() {
 		return this.getName() + " : " + this.getPrice() + " €";
 	}
 	
+	/**
+	 * Display a product with a space format.
+	 * @param size Size of the space before the price.
+	 * @return A String with a product's name and price separated by spaces.
+	 */
 	public String getProductf(int size) {
 		return "%-"+size+"s : %5s €";
 	}

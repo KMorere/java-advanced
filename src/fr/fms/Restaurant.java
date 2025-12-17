@@ -4,21 +4,11 @@ import java.util.Scanner;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.TreeMap;
-import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Restaurant {
 	static Scanner scan = new Scanner(System.in);
-	static String[] menuType = {"Entry", "Main course", "Accompaniment", "Drink", "Desert"} ; // String array of the menu name.
-	/*static String[][] menu = { // 2 Dimensionnal array of the menu.
-			{"None", "Salad", "Soup", "Quiche"},
-			{"None", "Chicken", "Beef", "Fish", "Vegan"},
-			{"None", "Rice", "Pasta", "Fries", "Vegetables"},
-			{"None", "Water", "Soda", "Wine"},
-			{"None", "Pie", "Chocolate Mousse", "Tiramisu"},
-	};*/
 	static Menu menuItem = new Menu();
 	static Product[][] menu = menuItem.getMenu();
 	
@@ -49,7 +39,10 @@ public class Restaurant {
 		scan.close();
 	}
 	
-	// Initialize an order.
+	/**
+	 * Initialize an order.
+	 * @param index Current order number.
+	 */
 	private static void startOrder(int index) {
 		Product[] order = new_order.getOrder();
 		
@@ -84,7 +77,7 @@ public class Restaurant {
 		}
 		System.out.println();
 		
-		System.out.println("Select " + menuType[index].toLowerCase() + " :");
+		System.out.println("Select " + menuItem.getMenuType(index).toLowerCase() + " :");
 		if (!scan.hasNextInt())
 			return menu[index][0]; // Return None in the menu if the input is not valid.
 		

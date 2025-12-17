@@ -8,6 +8,7 @@ public class Menu {
 			{new Product("None", 0), new Product("Water", 0), new Product("Soda", 2), new Product("Wine", 5)},
 			{new Product("None", 0), new Product("Pie", 5), new Product("Chocolate Mousse", 5), new Product("Tiramisu", 5)}
 	};
+	private String[] menuType = {"Entry", "Main course", "Accompaniment", "Drink", "Desert"};
 	
 	public Product[][] getMenu() {
 		return this.menu;
@@ -17,6 +18,13 @@ public class Menu {
 		return this.menu[index];
 	}
 	
+	public String getMenuType(int index) {
+		return this.menuType[index];
+	}
+	
+	/**
+	 * Display all the products of the menu row by row.
+	 */
 	public void displayMenu() {
 		for (Product[] rows : this.menu) {
 			for(int i = 0; i < rows.length; i++) {
@@ -26,6 +34,10 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Display the products in a row.
+	 * @param index The index of the desired row.
+	 */
 	public void displayRow(int index) {
 		for(int i = 0; i < this.menu[index].length; i++) {
 			System.out.print("[" + i + " - " + this.menu[index][i].getName() + "]");
@@ -33,6 +45,10 @@ public class Menu {
 		System.out.println();
 	}
 	
+	/**
+	 * Find the highest amount of characters from the menu.
+	 * @return The size of the longest product name.
+	 */
 	public int getBiggestChar() {
 		int size = 0;
 		for (Product[] rows : this.getMenu())
